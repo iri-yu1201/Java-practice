@@ -14,5 +14,8 @@ public class Variable01 {
 		
 		int num2 = 30;
 		System.out.println(num2);
+		
+		final int MIN_NUMBER = 10;
+		System.out.println(MIN_NUMBER);
 	}
 }

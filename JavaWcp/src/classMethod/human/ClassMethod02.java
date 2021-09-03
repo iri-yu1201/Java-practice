@@ -8,7 +8,7 @@ public class ClassMethod02 {
 		System.out.println("名前は" + yamada.name + "で、年齢は" + yamada.age + "です。");
 		
 		Human02 sato = new Human02("佐藤", 25);
-		System.out.println("名前は" + sato.name + "で年齢は" + sato.age + "です。");
+		System.out.println("名前は" + sato.name + "で、年齢は" + sato.age + "です。");
 	}
 
 }

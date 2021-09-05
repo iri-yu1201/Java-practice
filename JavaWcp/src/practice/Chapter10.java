@@ -1,7 +1,7 @@
 package practice;
 
 import java.sql.SQLException;
-
+//mainはプログラム最初に実行される(ないとエラーになる)
 public class Chapter10 {
 	public static void main(String[] args) {
 		try {

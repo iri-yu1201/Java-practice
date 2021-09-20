@@ -1,7 +1,9 @@
+import java.math.BigDecimal;
 
-public class Basket<E> {
+public class Basket<E extends Fruit> {
 	
 	private E elem;
+	private final BigDecimal basketPrice = new BigDecimal(100);
 	Basket(E e) {
 		elem = e;
 	}
@@ -14,36 +16,51 @@ public class Basket<E> {
 		return elem;
 	}
 	
+	void printName() {
+		System.out.println("籠の中身は" + elem.getName() + "です。");
+	}
+	
+	void printTotalPrice() {
+		BigDecimal totalPrice = basketPrice.add(elem.getPrice());
+		System.out.println(elem.getName() + "の入った籠の合計は" + totalPrice + "円です。");
+	}
+	
 	public static void main(String[] args) {
-		Basket<Apple> appleBasket = new Basket<>(new Apple("ふじ"));
-		System.out.println(appleBasket.get().getName());
+		Basket<Apple> appleBasket = new Basket<>(new Apple("ふじ", new BigDecimal(200)));
+		Basket<Peach> peachBasket = new Basket<>(new Peach("黄金桃", new BigDecimal(300)));
 		
-		appleBasket.replace(new Apple("紅玉"));
-		System.out.println(appleBasket.get().getName());
+		appleBasket.printTotalPrice();
+		peachBasket.printTotalPrice();
 	}
 }
 
-class Apple {
-	private String name;
-	
-	Apple(String name) {
-		this.name = name;
+class Apple extends Fruit {	
+	Apple(String name, BigDecimal price) {
+		super(name, price);
 	}
 	
-	String getName() {
+	@Override
+	protected String getName() {
 		return name;
 	}
-
+	@Override
+	protected BigDecimal getPrice() {
+		return price;
+	}
 }
 
-class Peach {
-	private String name;
+class Peach extends Fruit {
 	
-	Peach(String name){
-		this.name = name;
+	Peach(String name, BigDecimal price){
+		super(name, price);
 	}
 	
-	String getName() {
+	@Override
+	protected String getName() {
 		return name;
+	}
+	@Override
+	protected BigDecimal getPrice() {
+		return price;
 	}
 }

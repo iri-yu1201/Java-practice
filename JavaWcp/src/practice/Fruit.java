@@ -20,8 +20,10 @@ public class Fruit {
 	
 	@Override
 	public String toString() {
-		return name + ":" + quantity + "個";
+		return name + ": " + quantity + "個";
 	}
+
+
 public static void main(String[] args) {
 		
 	List<Fruit> fruits = new ArrayList<>();
@@ -30,11 +32,10 @@ public static void main(String[] args) {
 	fruits.add(new Fruit("いちご", 4));
 	fruits.add(new Fruit("メロン", 8));
 	fruits.add(new Fruit("ぶどう", 20));
-
 	
 	List<Fruit> filtered = new ArrayList<>();
 	//拡張forでfruitsをループ
-	for (Fruit fruit: fruits) {
+	for (Fruit fruit : fruits) {
 		if (fruit.quantity <= 10) {
 			filtered.add(fruit);
 			//条件のものだけをリストに追加
